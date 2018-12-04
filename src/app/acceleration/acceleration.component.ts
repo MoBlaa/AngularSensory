@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer, Renderer2 } from '@angular/core';
 
 export interface Orientation {
   alpha: number;
@@ -13,8 +13,10 @@ export interface Orientation {
 })
 export class AccelerationComponent implements OnInit {
   orientation: Orientation;
+  renderer: Renderer2;
 
-  constructor() {
+  constructor(renderer: Renderer2) {
+    this.renderer = renderer;
     this.orientation = {
       alpha: 1,
       beta: 1,
@@ -23,12 +25,10 @@ export class AccelerationComponent implements OnInit {
   }
 
   ngOnInit() {
-    window.addEventListener('deviceorientation', this.handleOrientationEvent, false);
+    this.renderer.listen('window', 'deviceorientation', (e: DeviceOrientationEvent) => {
+      const alpha = e.alpha, beta = e.beta, gamma = e.gamma;
+      this.orientation = { alpha, beta, gamma };
+      console.log(`Changing orientation to: { alpha: ${alpha}, beta: ${beta}, gamma: ${gamma} }`);
+    });
   }
-
-  handleOrientationEvent(e: DeviceOrientationEvent) {
-    const alpha = e.alpha, beta = e.beta, gamma = e.gamma;
-    this.orientation = { alpha, beta, gamma };
-  }
-
 }
