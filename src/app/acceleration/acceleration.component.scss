@@ -1,0 +1,9 @@
+canvas {
+    width: 100%;
+}
+
+canvas::after {
+    content: "";
+    display: block;
+    padding-bottom: 0;
+}
