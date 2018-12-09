@@ -15,7 +15,7 @@ export class AppComponent {
     version: environment.version,
     type: Phaser.AUTO,
     width: window.innerWidth,
-    height: window.innerHeight,
+    height: window.innerWidth,
     backgroundColor: '#ffffff', // White background
     physics: {
       default: 'arcade',

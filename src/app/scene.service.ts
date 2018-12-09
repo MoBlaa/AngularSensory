@@ -47,7 +47,7 @@ export class SceneService extends Phaser.Scene {
     this.platforms = this.physics.add.staticGroup();
     // this.createPlatform(window.innerWidth / 2, window.innerHeight / 2, 2);
     // this.createPlatform(window.innerWidth / 2, window.innerHeight, 5);
-    this.createPlatform(window.innerWidth / 4, 0, 1);
+    // this.createPlatform(window.innerWidth / 4, 0, 1);
 
     //// Create the player
     this.player = this.physics.add.sprite(window.innerWidth / 2, window.innerHeight / 3, 'dude');
@@ -66,8 +66,6 @@ export class SceneService extends Phaser.Scene {
     this.debugText = this.add.text(16, 16, 'No Velocity', {
       fontSize: '10px', fill: '#000'
     });
-
-    this.player.anims.play('turn');
   }
 
   public update() {
