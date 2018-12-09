@@ -8,6 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "phaser:get": "curl -o src/phaser.d.ts https://raw.githubusercontent.com/photonstorm/phaser3-docs/master/typescript/phaser.d.ts",
+    "postinstall": "npm run phaser:get",
     "prod:build": "ng build --prod",
     "prod:deploy": "ng build --prod --base-href 'https://moblaa.github.io/AngularSensory/' && ngh --dir=dist/AngularSensory"
   },
@@ -23,6 +25,8 @@
     "@angular/platform-browser-dynamic": "~7.0.0",
     "@angular/router": "~7.0.0",
     "core-js": "^2.5.4",
+    "phaser": "^3.15.1",
+    "phaser-component-library": "^2.0.0",
     "rxjs": "~6.3.3",
     "zone.js": "~0.8.26"
   },
